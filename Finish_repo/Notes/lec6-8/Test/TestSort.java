@@ -4,35 +4,30 @@ public class TestSort{
     public static void testsort(){
         /**Test the Sort.sort method*/
         /**Create a string and feeds it to Sort Class*/
-
         String [] input = new String[]{"he","is","a","cute","boy"};
         String  [] expected = new String[]{"a","boy","cute","he","is"};
-/*          Why this work? Bcuz input still points to the String array(object), which means in Sort class we need to set void instead of returning an array
-*           Also, we should Change the String array in the Sort class(Sort things destructively)*/
-//        Sort.sort(input);
-//        assertEquals is depreccated(not recomended using)
-//        org.junit.Assert.assertEquals(expected,input);
+        Sort.sort(input);
         org.junit.Assert.assertArrayEquals(expected,input);
         /**JUnit library checks if the objects are same!*/
-//        if(input.length!=expected.length) {
-//            System.out.println("FAIL: you return " + input.length + " words, but it should be " + expected.length + " words.");
-//            return;
-//        }
-//        for(int i=0;i<expected.length;i++){
-//            if(expected[i].equals(input[i]))
-//                continue;
-//            else{
-//                System.out.println("FAIL:Wrong in position "+i+", expected '"+expected[i]+"', but got '"+input[i]+"'.");
-//                return;
-//            }
-//        }
-        System.out.println("Success");
 
-
+    }
+    /** Test the Sort.findSmallest method. */
+    public static void testFindSmallest(){
+        String [] input = new String[]{"he","is","a","cute","boy"};
+        String expected = "a";
+        String actual = Sort.findSmallest(input);
+        org.junit.Assert.assertEquals(expected,actual);
+        //Second Test:
+        String [] input2 = new String[]{"once","upon","a","time"};
+        String expected2 = "a";
+        String actual2 = Sort.findSmallest(input2);
+        org.junit.Assert.assertEquals(expected2,actual2);
     }
 
 
     public static void main(String[] args){
-    testsort();
+//    testsort();
+        testFindSmallest();
     }
+
 }
