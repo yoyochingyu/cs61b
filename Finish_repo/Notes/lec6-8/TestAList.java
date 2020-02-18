@@ -1,6 +1,6 @@
 public class TestAList{
     public static void main(String[] args){
-        AList a = new AList();
+        AList2 a = new AList2();
         a.addLast(10);
         a.addLast(20);
         a.getLast();
