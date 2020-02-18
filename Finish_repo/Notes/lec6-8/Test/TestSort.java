@@ -8,20 +8,24 @@ public class TestSort{
         String [] input = new String[]{"he","is","a","cute","boy"};
         String  [] expected = new String[]{"a","boy","cute","he","is"};
 /*          Why this work? Bcuz input still points to the String array(object), which means in Sort class we need to set void instead of returning an array
-*           Also, we should Change the String array in the Sort class*/
-        Sort.sort(input);
-        if(input.length!=expected.length) {
-            System.out.println("FAIL: you return " + input.length + " words, but it should be " + expected.length + " words.");
-            return;
-        }
-        for(int i=0;i<expected.length;i++){
-            if(expected[i].equals(input[i]))
-                continue;
-            else{
-                System.out.println("FAIL:Wrong in position "+i+", expected '"+expected[i]+"', but got '"+input[i]+"'.");
-                return;
-            }
-        }
+*           Also, we should Change the String array in the Sort class(Sort things destructively)*/
+//        Sort.sort(input);
+//        assertEquals is depreccated(not recomended using)
+//        org.junit.Assert.assertEquals(expected,input);
+        org.junit.Assert.assertArrayEquals(expected,input);
+        /**JUnit library checks if the objects are same!*/
+//        if(input.length!=expected.length) {
+//            System.out.println("FAIL: you return " + input.length + " words, but it should be " + expected.length + " words.");
+//            return;
+//        }
+//        for(int i=0;i<expected.length;i++){
+//            if(expected[i].equals(input[i]))
+//                continue;
+//            else{
+//                System.out.println("FAIL:Wrong in position "+i+", expected '"+expected[i]+"', but got '"+input[i]+"'.");
+//                return;
+//            }
+//        }
         System.out.println("Success");
 
 
