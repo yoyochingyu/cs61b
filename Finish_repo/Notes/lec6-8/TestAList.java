@@ -1,8 +1,8 @@
 public class TestAList{
     public static void main(String[] args){
-        AList2 a = new AList2();
-        a.addLast(10);
-        a.addLast(20);
+        AList2<String> a = new AList2<>();
+        a.addLast("Hi");
+        a.addLast("You");
         a.getLast();
         a.get(2);
         a.size();

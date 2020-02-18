@@ -18,26 +18,26 @@
  size: The number of items in the list should be size.
 */
 
-public class AList2 {
+public class AList2<Item> {
     /**Private ensures no one else will enter the code*/
-    private int [] items;
+    private Item [] items;
     private int size;
 
     /** Creates an empty list. */
     public AList2(){
-        items = new int [100];
+        items = (Item [])new Object [100];
         size = 0;
     }
     /** Resizing the array to the target capacity! */
     /** Private*/
-    public void resize(int capacity){
-        int [] a = new int [capacity];
+    private void resize(int capacity){
+        Item [] a = (Item [])new Object [capacity];
         System.arraycopy(items,0,a,0,size);
         items = a;
     }
 
     /** Inserts X into the back of the list. */
-    public void addLast(int x){
+    public void addLast(Item x){
         /**Handle if array gets too big*/
         if(size == items.length)
             resize(size+1);
@@ -46,11 +46,11 @@ public class AList2 {
     }
 
     /** Returns the item from the back of the list. */
-    public int getLast(){
+    public Item getLast(){
         return items[size-1];
     }
     /** Gets the ith item in the list (0 is the front). */
-    public int get(int i){
+    public Item get(int i){
         return items[size-1];
     }
     /** Returns the number of items in the list. */
@@ -63,9 +63,11 @@ public class AList2 {
      * returns deleted item. */
     //因為預設都填0(new int [100]，所以可以直接設0)
     //其實不用填0，只要access不到就好了，之後寫新的覆蓋就好!
-    public int removeLast(){
-        int x = getLast();
-        items[size] = 0; //Not necessary
+    public Item removeLast(){
+        Item x = getLast();
+//        items[size] = 0; //Not necessary
+        items[size] = null; //Not necessary
+
         size--;
         return x;
 //        size--;

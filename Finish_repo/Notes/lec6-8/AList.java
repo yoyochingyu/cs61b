@@ -1,4 +1,6 @@
-/**Wrong：we don't need to use a new array and point to it!*/
+/** Self-made AList
+ * Wrong：we don't need to use a new array and point to it!*/
+
 
 public class AList{
     //用Array寫Linkedlist(有pointer去串接前後東西)
