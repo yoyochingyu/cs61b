@@ -15,12 +15,12 @@ public class TestSort{
     public static void testFindSmallest(){
         String [] input = new String[]{"he","is","a","cute","boy"};
         int expected = 2;
-        int actual = Sort.findSmallest(input);
+        int actual = Sort.findSmallest(input,0);
         org.junit.Assert.assertEquals(expected,actual);
         //Second Test:
         String [] input2 = new String[]{"once","upon","a","time"};
         int expected2 = 2;
-        int actual2 = Sort.findSmallest(input2);
+        int actual2 = Sort.findSmallest(input2,1);
         org.junit.Assert.assertEquals(expected2,actual2);
     }
 

@@ -1,27 +1,28 @@
 /**
  * Philosophy:
- * 1. Small pieces
+ * 1. Small pieces to test(Unit-testing)
  * 2. Test->Code
  * 3. Selection sort --> Keep/Compare the index
  * */
 public class Sort{
-    public static int count = 0;
     public static void sort(String [] x){
-        //Find the smallest in the String
-        //Move it to the front
-        //Selection sort the rest
-        int smallestIndex = findSmallest(x);
-        swap(x,count,smallestIndex);
-        if((count+2)<=x.length) {
-            count++;
-            sort(x);
-        }
+        sort(x,0);
+    }
+    /** Private sort method, passing in the index*/
+    /** Sorts x starting at position x */
+    private static void  sort(String[] x, int start){
+
+        if(start>=x.length)
+            return;
+        int smallestIndex = findSmallest(x,start);
+        swap(x,start,smallestIndex);
+        sort(x,++start);
     }
 
-    /** Return the smallest index in x*/
-    public static int findSmallest(String [] x){
-        int smallestIndex = count;
-        for(int i=count;i<x.length;i++){
+    /** Return the smallest index in x, starting at start*/
+    public static int findSmallest(String [] x, int start){
+        int smallestIndex = start;
+        for(int i=start;i<x.length;i++){
             if(x[i].compareTo(x[smallestIndex])<0)
                 smallestIndex = i;
         }
