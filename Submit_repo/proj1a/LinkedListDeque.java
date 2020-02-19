@@ -3,61 +3,61 @@
  * 1. index -1 = sentinel, index 0 = first item, the last item 's index = size-1(index+1 = size)
  *
  * */
-public class LinkedListDeque {
-    private class IntNode {
-        int item;
-        IntNode prev;
-        IntNode next;
-        IntNode(int i, IntNode p, IntNode n) {
+public class LinkedListDeque<LochNess> {
+    private class StuffNode {
+        LochNess item;
+        StuffNode prev;
+        StuffNode next;
+        StuffNode(LochNess i, StuffNode p, StuffNode n) {
             /** 這裡不可以同名會出錯(ex:item = item)*/
             item = i;
             prev = p;
             next = n;
         }
     }
-    public IntNode sentinel;
+    public StuffNode sentinel;
     public int size;
 
     /**Creates an empty LinkedListDeque:sentinel only*/
     public LinkedListDeque() {
-        //Error:nullPointer->因為在右側new的時候sentinel還沒有指派值是null，所以不能寫new IntNode(0,sentinel,sentinel)
-        sentinel = new IntNode(0,null,null);
+        //Error:nullPointer->因為在右側new的時候sentinel還沒有指派值是null，所以不能寫new StuffNode(0,sentinel,sentinel)
+        sentinel = new StuffNode(null,null,null);
         sentinel.next = sentinel;
         sentinel.prev = sentinel;
         size = 0;
     }
     /** Add items into the front*/
-    public void addFirst(int x){
+    public void addFirst(LochNess x){
 //      加在sentinel的後面:
-        IntNode temp = sentinel.next;
-        sentinel.next = new IntNode(x,sentinel,sentinel.next);
+        StuffNode temp = sentinel.next;
+        sentinel.next = new StuffNode(x,sentinel,sentinel.next);
         temp.prev = sentinel.next;
         size++;
     }
 
     /** Add item into the back */
-    public void addLast(int x){
-        IntNode temp = sentinel.prev;
-        sentinel.prev = new IntNode(x,sentinel.prev,sentinel);
+    public void addLast(LochNess x){
+        StuffNode temp = sentinel.prev;
+        sentinel.prev = new StuffNode(x,sentinel.prev,sentinel);
         temp.next = sentinel.prev;
         size++;
 
     }
 
-    public int removeFirst(){
-        IntNode temp = sentinel.next;
-        int output = temp.item;
+    public LochNess removeFirst(){
+        StuffNode temp = sentinel.next;
+        LochNess output = temp.item;
         sentinel.next = temp.next;
         temp.next.prev = sentinel;
         temp = null;
         size--;
         return output;
     }
-    public int removeLast(){
-        IntNode temp = sentinel.prev;
+    public LochNess removeLast(){
+        StuffNode temp = sentinel.prev;
         temp.prev.next = sentinel;
         sentinel.prev = temp.prev;
-        int output = temp.item;
+        LochNess output = temp.item;
         temp = null;
         size--;
         return output;
@@ -75,7 +75,7 @@ public class LinkedListDeque {
     public void printDeque(){
         if(this.isEmpty())
             return;
-        IntNode ptr = sentinel.next;
+        StuffNode ptr = sentinel.next;
         while(ptr.next != sentinel) {
             System.out.print(ptr.item+" ");
             ptr = ptr.next;
@@ -83,12 +83,12 @@ public class LinkedListDeque {
         System.out.println(ptr.item);
     }
 
-    public Integer get(int index) {
+    public LochNess get(int index) {
         int size = this.size;
         if (index >= size)
-            //return null?
+            //return null?->Change return type from "int" to"Integer"
             return null;
-        IntNode ptr = sentinel;
+        StuffNode ptr = sentinel;
         //從後面開始找
         if ((index+1) > 0.5 * size) {
             while (size != index) {

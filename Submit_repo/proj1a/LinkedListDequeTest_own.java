@@ -2,23 +2,23 @@ import org.junit.Test;
 import org.junit.Assert.*;
 
 public class LinkedListDequeTest_own{
-    /** Tests the IntNode constructor */
+    /** Tests the StuffNode constructor */
 //    @Test
 //    public void TestSLL(){
-//        IntNode()
+//        StuffNode()
 //    }
     public static void main(String[] args){
         //Test : SLL constructor + addFirst
-        LinkedListDeque l = new LinkedListDeque();
+        LinkedListDeque<String> l = new LinkedListDeque<>();
 //        System.out.println(l.isEmpty());
 //        System.out.println(l.size());
 //        l.printDeque();
-        l.addFirst(20);
+        l.addFirst("boy");
 //        System.out.println(l.isEmpty());
 //        System.out.println(l.size());
-        l.addFirst(10);
-        l.addFirst(5);
-        l.addLast(-5);
+        l.addFirst("a");
+        l.addFirst("is");
+        l.addLast("he");
 //        System.out.println(l.isEmpty());
 //        System.out.println(l.size());
 //        l.printDeque();
