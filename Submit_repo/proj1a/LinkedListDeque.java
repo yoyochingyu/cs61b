@@ -22,16 +22,9 @@ public class LinkedListDeque {
     }
     /** Add items into */
     public void addFirst(int x){
-//        //加在sentinel的後面:
-        /** 3 */
+//      加在sentinel的後面:
         IntNode temp = sentinel.next;
-        IntNode createdNode = new IntNode(x,null,null);
-//        就連新的node也不可以指向指向自己的node(會被視為null)，要另外另!
-//        IntNode createdNode = new IntNode(x,sentinel,sentinel.next);
-        createdNode.next = sentinel.next;
-        createdNode.prev = sentinel;
-        sentinel.next = createdNode;
-        /**3 */
+        sentinel.next = new IntNode(x,sentinel,sentinel.next);
         temp.prev = sentinel.next;
     }
 }
