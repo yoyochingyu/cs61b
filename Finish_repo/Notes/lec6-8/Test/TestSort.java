@@ -14,20 +14,32 @@ public class TestSort{
     /** Test the Sort.findSmallest method. */
     public static void testFindSmallest(){
         String [] input = new String[]{"he","is","a","cute","boy"};
-        String expected = "a";
-        String actual = Sort.findSmallest(input);
+        int expected = 2;
+        int actual = Sort.findSmallest(input);
         org.junit.Assert.assertEquals(expected,actual);
         //Second Test:
         String [] input2 = new String[]{"once","upon","a","time"};
-        String expected2 = "a";
-        String actual2 = Sort.findSmallest(input2);
+        int expected2 = 2;
+        int actual2 = Sort.findSmallest(input2);
         org.junit.Assert.assertEquals(expected2,actual2);
+    }
+
+    /** Test the Sort.swap method */
+    public static void testSwap(){
+        String [] input = {"he","is","a","cute","boy"};
+        int a = 0;
+        int b = 2;
+        String [] expected = {"a","is","he","cute","boy"};
+        Sort.swap(input,a,b);
+        /**Remember to run the Sort.swap method*/
+        org.junit.Assert.assertArrayEquals(expected,input);
     }
 
 
     public static void main(String[] args){
 //    testsort();
         testFindSmallest();
+//        testSwap();
     }
 
 }
