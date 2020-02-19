@@ -30,6 +30,7 @@ public class IntList {
      */
     public IntList() {
     /* NOTE: public IntList () { }  would also work. */
+    /** Sentinel node */
         this(0, null);
     }
 

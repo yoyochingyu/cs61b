@@ -16,6 +16,7 @@ public class IntListTest {
         IntList expected = IntList.of(3,2,1,0);
         IntList actual = IntList.reverse(input);
         assertEquals(expected,actual);
+        //可以直接用assertEquals是因為式destructive ，所以地址相同可以直接比
 
         System.out.println("Second Test : Null IntList");
         IntList input2 = null;
