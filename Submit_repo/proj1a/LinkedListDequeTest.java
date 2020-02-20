@@ -35,16 +35,17 @@ public class LinkedListDequeTest {
 	  * && is the "and" operation. */
 	public static void addIsEmptySizeTest() {
 		System.out.println("Running add/isEmpty/Size test.");
-		System.out.println("Make sure to uncomment the lines below (and delete this print statement).");
-		/*
-		LinkedListDeque<String> lld1 = new LinkedListDeque<String>();
 
+
+		LinkedListDeque<String> lld1 = new LinkedListDeque<>();
+		//First test
 		boolean passed = checkEmpty(true, lld1.isEmpty());
 
 		lld1.addFirst("front");
 		
 		// The && operator is the same as "and" in Python.
 		// It's a binary operator that returns true if both arguments true, and false otherwise.
+		//要&&的原因是因為如果前面的fail會導致後面的fail，要全部都pass才行
 		passed = checkSize(1, lld1.size()) && passed;
 		passed = checkEmpty(false, lld1.isEmpty()) && passed;
 
@@ -58,7 +59,7 @@ public class LinkedListDequeTest {
 		lld1.printDeque();
 
 		printTestStatus(passed);
-		*/
+
 	}
 
 	/** Adds an item, then removes an item, and ensures that dll is empty afterwards. */
@@ -67,8 +68,8 @@ public class LinkedListDequeTest {
 		System.out.println("Running add/remove test.");
 
 		System.out.println("Make sure to uncomment the lines below (and delete this print statement).");
-		/*
-		LinkedListDeque<Integer> lld1 = new LinkedListDeque<Integer>();
+
+		LinkedListDeque<Integer> lld1 = new LinkedListDeque<>();
 		// should be empty 
 		boolean passed = checkEmpty(true, lld1.isEmpty());
 
@@ -81,12 +82,12 @@ public class LinkedListDequeTest {
 		passed = checkEmpty(true, lld1.isEmpty()) && passed;
 
 		printTestStatus(passed);
-		*/
+
 	}
 
 	public static void main(String[] args) {
 		System.out.println("Running tests.\n");
-		addIsEmptySizeTest();
+//		addIsEmptySizeTest();
 		addRemoveTest();
 	}
 } 
