@@ -24,8 +24,9 @@ public class LinkedListDequeTest_own{
 //        l.printDeque();
 //        l.removeFirst();
 //        l.removeLast();
-        System.out.println(l.get(4));
-        System.out.println(l.size());
+//        System.out.println(l.get(4));
+//        System.out.println(l.size());
+        LinkedListDeque<String> l_copy = new LinkedListDeque<>(l);
     }
 
 }

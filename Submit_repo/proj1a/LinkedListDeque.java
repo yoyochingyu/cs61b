@@ -1,6 +1,7 @@
 /**
  * Invariants :
- * 1. index -1 = sentinel, index 0 = first item, the last item 's index = size-1(index+1 = size)
+ * 1. index -1 = sentinel = index size, index 0 = first item, the last item 's index = size-1(index+1 = size)
+ * 2. LinkedListDeque points at (=) sentinel
  *
  * */
 public class LinkedListDeque<LochNess> {
@@ -17,15 +18,29 @@ public class LinkedListDeque<LochNess> {
     }
     public StuffNode sentinel;
     public int size;
-
-    /**Creates an empty LinkedListDeque:sentinel only*/
-    public LinkedListDeque() {
+    /** Create a sentinel node */
+    private void createSentinel(){
         //Error:nullPointer->因為在右側new的時候sentinel還沒有指派值是null，所以不能寫new StuffNode(0,sentinel,sentinel)
         sentinel = new StuffNode(null,null,null);
         sentinel.next = sentinel;
         sentinel.prev = sentinel;
+    }
+
+    /**Creates an empty LinkedListDeque:sentinel only*/
+    public LinkedListDeque() {
+        this.createSentinel();
         size = 0;
     }
+
+    public LinkedListDeque(LinkedListDeque other){
+        this.createSentinel();
+        size = 0;
+        //Set the looping pointer:starts from front node
+        StuffNode ptr = other.sentinel.next;
+        for(int i=other.size-1;i>=0;i--)
+            this.addFirst((LochNess) other.get(i));
+    }
+
     /** Add items into the front*/
     public void addFirst(LochNess x){
 //      加在sentinel的後面:
@@ -102,6 +117,20 @@ public class LinkedListDeque<LochNess> {
             size++;
         }
         return ptr.item;
-
     }
+
+//    public LochNess getRecursive(int index){
+//        //改移動index，因為只有index可以被傳進recursive裡面
+//        if ((index+1) > 0.5 * size){
+//            if (size != index) {
+//                sentinel = sentinel.prev;
+//                return getRecursive(++index);
+//            }
+//        }else {
+//            if ((size - 5) != index) {
+//                sentinel = sentinel.next;
+//                return getRecursive(--index);
+//            }
+//        }
+//    }
 }
